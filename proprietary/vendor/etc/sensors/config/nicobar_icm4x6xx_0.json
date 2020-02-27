@@ -38,7 +38,7 @@
         "data": "0"
       },
       "irq_trigger_type":{ "type": "int", "ver": "0",
-        "data": "4"
+        "data": "0"
       },
       "num_rail":{ "type": "int", "ver": "0",
         "data": "1"
