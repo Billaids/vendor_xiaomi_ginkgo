@@ -7,7 +7,7 @@
 BEGIN TRANSACTION;
 
 CREATE TABLE IF NOT EXISTS qcril_properties_table (property TEXT,value TEXT, PRIMARY KEY(property));
-INSERT OR REPLACE INTO qcril_properties_table (property, value) VALUES ('qcrildb_version', 5);
+INSERT OR REPLACE INTO qcril_properties_table (property, value) VALUES ('qcrildb_version', 6);
 /*<Modify for qcril_emergency_source_mcc_table start*/
 DELETE FROM qcril_emergency_source_mcc_table WHERE MCC = '202' AND NUMBER = '100';
 DELETE FROM qcril_emergency_source_mcc_table WHERE MCC = '202' AND NUMBER = '199';
@@ -69,6 +69,11 @@ DELETE FROM qcril_emergency_source_voice_table WHERE MCC = '202';
 INSERT INTO qcril_emergency_source_voice_table VALUES('202','100','','full');
 INSERT INTO qcril_emergency_source_voice_table VALUES('202','166','','full');
 INSERT INTO qcril_emergency_source_voice_table VALUES('202','199','','full');
+
+DELETE FROM qcril_emergency_source_voice_table WHERE MCC = '456';
+INSERT INTO qcril_emergency_source_voice_table VALUES('456','117','','full');
+INSERT INTO qcril_emergency_source_voice_table VALUES('456','118','','full');
+INSERT INTO qcril_emergency_source_voice_table VALUES('456','119','','full');
 
 /*Modify for qcril_emergency_source_voice_table end>*/
 
@@ -157,8 +162,6 @@ DELETE FROM qcril_emergency_source_mcc_mnc_table where MCC = '230' AND MNC = '03
 DELETE FROM qcril_emergency_source_mcc_mnc_table where MCC = '230' AND MNC = '03' AND NUMBER = '150';
 DELETE FROM qcril_emergency_source_mcc_mnc_table where MCC = '230' AND MNC = '03' AND NUMBER = '155';
 DELETE FROM qcril_emergency_source_mcc_mnc_table where MCC = '230' AND MNC = '03' AND NUMBER = '158';
-DELETE FROM qcril_emergency_source_mcc_mnc_table where MCC = '730' AND MNC = '02' AND NUMBER = '132';
-DELETE FROM qcril_emergency_source_mcc_mnc_table where MCC = '730' AND MNC = '02' AND NUMBER = '131';
 /*Modify for qcril_emergency_source_mcc_mnc_table end>*/
 
 /*<Modify for qcril_emergency_source_voice_mcc_mnc_table start*/
@@ -201,8 +204,35 @@ INSERT INTO qcril_emergency_source_voice_mcc_mnc_table VALUES('732','101','123',
 /*Modify for qcril_emergency_source_voice_mcc_mnc_table end>*/
 
 
+DELETE FROM qcril_emergency_source_voice_mcc_mnc_table where MCC = '260' AND MNC = '03' AND NUMBER = '997';
+DELETE FROM qcril_emergency_source_voice_mcc_mnc_table where MCC = '260' AND MNC = '03' AND NUMBER = '998';
+DELETE FROM qcril_emergency_source_voice_mcc_mnc_table where MCC = '260' AND MNC = '03' AND NUMBER = '999';
+INSERT INTO qcril_emergency_source_voice_mcc_mnc_table VALUES('260','03','997','','');
+INSERT INTO qcril_emergency_source_voice_mcc_mnc_table VALUES('260','03','998','','');
+INSERT INTO qcril_emergency_source_voice_mcc_mnc_table VALUES('260','03','999','','');
 
+DELETE FROM qcril_emergency_source_voice_table WHERE MCC = '260' AND NUMBER = '997';
+DELETE FROM qcril_emergency_source_voice_table WHERE MCC = '260' AND NUMBER = '998';
+DELETE FROM qcril_emergency_source_voice_table WHERE MCC = '260' AND NUMBER = '999';
+INSERT INTO qcril_emergency_source_voice_table VALUES('260','997','','full');
+INSERT INTO qcril_emergency_source_voice_table VALUES('260','998','','full');
+INSERT INTO qcril_emergency_source_voice_table VALUES('260','999','','full');
 
+DELETE FROM qcril_emergency_source_mcc_table WHERE MCC = '208' AND NUMBER = '15';
+DELETE FROM qcril_emergency_source_mcc_table WHERE MCC = '208' AND NUMBER = '17';
+DELETE FROM qcril_emergency_source_mcc_table WHERE MCC = '208' AND NUMBER = '18';
 
+DELETE FROM qcril_emergency_source_voice_table WHERE MCC = '208' AND NUMBER = '15';
+DELETE FROM qcril_emergency_source_voice_table WHERE MCC = '208' AND NUMBER = '17';
+DELETE FROM qcril_emergency_source_voice_table WHERE MCC = '208' AND NUMBER = '18';
+
+/*<Modify for qcril_emergency_source_mcc_mnc_table start*/
+DELETE FROM qcril_emergency_source_mcc_mnc_table where MCC = '730' AND MNC = '02' AND NUMBER = '133';
+DELETE FROM qcril_emergency_source_mcc_mnc_table where MCC = '730' AND MNC = '02' AND NUMBER = '112';
+DELETE FROM qcril_emergency_source_mcc_mnc_table where MCC = '730' AND MNC = '02' AND NUMBER = '911';
+INSERT INTO qcril_emergency_source_mcc_mnc_table VALUES('730','02','133','','');
+INSERT INTO qcril_emergency_source_mcc_mnc_table VALUES('730','02','112','','');
+INSERT INTO qcril_emergency_source_mcc_mnc_table VALUES('730','02','911','','');
+/*Modify for qcril_emergency_source_mcc_mnc_table end>*/
 
 COMMIT TRANSACTION;
